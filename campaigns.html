@@ -258,12 +258,11 @@
         <nav>
             <div class="logo">Heritage Hub</div>
             <div class="nav-links">
-                <a href="#">Home</a>
-                <a href="#">Shop</a>
-                <a href="#">Events</a>
-                <a href="#">Stories</a>
-                <a href="#">About</a>
-                <a href="#">Contact</a>
+                <a href="#" onclick="navigateTo('home')">Home</a>
+                <a href="#" onclick="navigateTo('shops')">Shops</a>
+                <a href="#" onclick="navigateTo('campaigns')">Events & Campaigns</a>
+                <a href="#">About Us</a>
+                <a href="#" onclick="navigateTo('cart')">Cart (0)</a>
             </div>
         </nav>
     </header>
@@ -472,5 +471,23 @@
         <p>&copy; 2025 Heritage Hub. All rights reserved.</p>
         <p>Connecting traditions with modern consumers</p>
     </footer>
+
+    <script>
+        function navigateTo(page) {
+            if (page === 'home') {
+                window.location.href = 'index.html';
+            } else if (page === 'shops') {
+                window.location.href = 'shops.html';
+            } else if (page === 'category') {
+                window.location.href = 'category.html';
+            } else if (page === 'campaigns') {
+                window.location.href = 'campaigns.html';
+            } else if (page === 'cart') {
+                window.location.href = 'cart.html';
+            } else if (page === 'product') {
+                window.location.href = 'product.html';
+            }
+        }
+    </script>
 </body>
 </html>
