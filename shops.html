@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heritage Hub - Shops</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            line-height: 1.6;
+        }
+        header {
+            background-color: #4a6741;
+            color: white;
+            padding: 1rem;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+        }
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .shops-header {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .filter-options {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 4px;
+        }
+        .filter-group select {
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        .search-box input {
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            width: 200px;
+        }
+        .shops-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .shop-card {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .shop-image {
+            background-color: #ddd;
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #777;
+        }
+        .shop-details {
+            padding: 15px;
+        }
+        .shop-category {
+            display: inline-block;
+            background-color: #eee;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #4a6741;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        .pagination a {
+            display: inline-block;
+            padding: 8px 12px;
+            margin: 0 5px;
+            border: 1px solid #ddd;
+            text-decoration: none;
+            color: #333;
+            border-radius: 4px;
+        }
+        .pagination a.active {
+            background-color: #4a6741;
+            color: white;
+            border-color: #4a6741;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Heritage Hub</div>
+            <div class="nav-links">
+                <a href="#" onclick="navigateTo('home')">Home</a>
+                <a href="#">Shops</a>
+                <a href="#" onclick="navigateTo('campaigns')">Events & Campaigns</a>
+                <a href="#">About Us</a>
+                <a href="#" onclick="navigateTo('cart')">Cart (0)</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="main-content">
+        <section class="shops-header">
+            <h1>Discover Cultural Shops</h1>
+            <p>Browse our collection of small businesses and artisans preserving traditional crafts</p>
+        </section>
+
+        <section class="filter-options">
+            <div class="filter-group">
+                <select>
+                    <option>All Categories</option>
+                    <option>Traditional Clothing</option>
+                    <option>Artisan Crafts</option>
+                    <option>Festival Items</option>
+                    <option>Traditional Foods</option>
+                </select>
+                <select>
+                    <option>All Regions</option>
+                    <option>East Asia</option>
+                    <option>South Asia</option>
+                    <option>Europe</option>
+                    <option>Africa</option>
+                    <option>Latin America</option>
+                </select>
+            </div>
+            <div class="search-box">
+                <input type="text" placeholder="Search shops...">
+            </div>
+        </section>
+
+        <section class="shops-grid">
+            <div class="shop-card" onclick="navigateTo('shop')">
+                <div class="shop-image">Golden Thread Textiles</div>
+                <div class="shop-details">
+                    <span class="shop-category">Traditional Clothing</span>
+                    <h3>Golden Thread Textiles</h3>
+                    <p>Family-owned business specializing in handwoven textiles using traditional patterns passed down for generations.</p>
+                    <a href="#" onclick="navigateTo('shop')" class="btn">Visit Shop</a>
+                </div>
+            </div>
+            
+            <div class="shop-card" onclick="navigateTo('shop')">
+                <div class="shop-image">Bamboo Artistry</div>
+                <div class="shop-details">
+                    <span class="shop-category">Artisan Crafts</span>
+                    <h3>Bamboo Artistry</h3>
+                    <p>Sustainable bamboo crafts with cultural designs that tell stories of East Asian traditions.</p>
+                    <a href="#" onclick="navigateTo('shop')" class="btn">Visit Shop</a>
+                </div>
+            </div>
+            
+            <div class="shop-card" onclick="navigateTo('shop')">
+                <div class="shop-image">Ceramic Heritage</div>
+                <div class="shop-details">
+                    <span class="shop-category">Artisan Crafts</span>
+                    <h3>Ceramic Heritage</h3>
+                    <p>Traditional pottery with modern functionality, keeping alive techniques from the 16th century.</p>
+                    <a href="#" onclick="navigateTo('shop')" class="btn">Visit Shop</a>
+                </div>
+            </div>
+            
+            <div class="shop-card" onclick="navigateTo('shop')">
+                <div class="shop-image">Ancestral Spices</div>
+                <div class="shop-details">
+                    <span class="shop-category">Traditional Foods</span>
+                    <h3>Ancestral Spices</h3>
+                    <p>Family recipes and traditional cooking ingredients with stories that connect food and cultural identity.</p>
+                    <a href="#" onclick="navigateTo('shop')" class="btn">Visit Shop</a>
+                </div>
+            </div>
+            
+            <div class="shop-card" onclick="navigateTo('shop')">
+                <div class="shop-image">Festival Lights</div>
+                <div class="shop-details">
+                    <span class="shop-category">Festival Items</span>
+                    <h3>Festival Lights</h3>
+                    <p>Handmade lanterns and light fixtures for cultural celebrations around the world.</p>
+                    <a href="#" onclick="navigateTo('shop')" class="btn">Visit Shop</a>
+                </div>
+            </div>
+            
+            <div class="shop-card" onclick="navigateTo('shop')">
+                <div class="shop-image">Traditional Baskets</div>
+                <div class="shop-details">
+                    <span class="shop-category">Artisan Crafts</span>
+                    <h3>Traditional Baskets</h3>
+                    <p>Hand-woven baskets using techniques passed down through generations in rural communities.</p>
+                    <a href="#" onclick="navigateTo('shop')" class="btn">Visit Shop</a>
+                </div>
+            </div>
+        </section>
+
+        <div class="pagination">
+            <a href="#" class="active">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+            <a href="#">Next</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Heritage Hub - Connecting Cultures, Preserving Traditions</p>
+    </footer>
+
+    <script>
+        function navigateTo(page) {
+            if (page === 'home') {
+                window.location.href = 'index.html';
+            } else if (page === 'shop') {
+                window.location.href = 'shop.html';
+            } else if (page === 'category') {
+                window.location.href = 'category.html';
+            } else if (page === 'campaigns') {
+                window.location.href = 'campaigns.html';
+            } else if (page === 'cart') {
+                window.location.href = 'cart.html';
+            } else if (page === 'product') {
+                window.location.href = 'product.html';
+            }
+        }
+    </script>
+</body>
+</html>

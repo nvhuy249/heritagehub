@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heritage Hub - Product Details</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            line-height: 1.6;
+        }
+        header {
+            background-color: #4a6741;
+            color: white;
+            padding: 1rem;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+        }
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .breadcrumb {
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+        .breadcrumb a {
+            color: #4a6741;
+            text-decoration: none;
+        }
+        .product-container {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        .product-images {
+            flex: 0 0 50%;
+        }
+        .main-image {
+            background-color: #eee;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #777;
+            margin-bottom: 10px;
+        }
+        .image-thumbnails {
+            display: flex;
+            gap: 10px;
+        }
+        .thumbnail {
+            background-color: #ddd;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        .product-info {
+            flex: 1;
+        }
+        .product-category {
+            display: inline-block;
+            background-color: #eee;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+        }
+        .product-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #4a6741;
+            margin: 15px 0;
+        }
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+        }
+        .quantity-selector button {
+            width: 30px;
+            height: 30px;
+            background-color: #eee;
+            border: 1px solid #ddd;
+            cursor: pointer;
+        }
+        .quantity-selector input {
+            width: 50px;
+            height: 30px;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-left: none;
+            border-right: none;
+        }
+        .add-to-cart {
+            display: inline-block;
+            background-color: #4a6741;
+            color: white;
+            padding: 12px 20px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+        }
+        .tradtion-story {
+            margin-top: 50px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 4px;
+        }
+        .tradition-content {
+            margin-top: 20px;
+            display: flex;
+            gap: 30px;
+        }
+        .tradition-image {
+            flex: 0 0 300px;
+            background-color: #ddd;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #777;
+        }
+        .tabs {
+            margin-top: 40px;
+        }
+        .tab-buttons {
+            display: flex;
+            border-bottom: 1px solid #ddd;
+        }
+        .tab-btn {
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            border-bottom: none;
+            border-radius: 4px 4px 0 0;
+            margin-right: 5px;
+        }
+        .tab-btn.active {
+            background-color: white;
+            border-bottom: 1px solid white;
+            margin-bottom: -1px;
+        }
+        .tab-content {
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-top: none;
+        }
+        .hidden {
+            display: none;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Heritage Hub</div>
+            <div class="nav-links">
+                <a href="#" onclick="navigateTo('home')">Home</a>
+                <a href="#" onclick="navigateTo('shops')">Shops</a>
+                <a href="#" onclick="navigateTo('campaigns')">Events & Campaigns</a>
+                <a href="#">About Us</a>
+                <a href="#" onclick="navigateTo('cart')">Cart (0)</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="main-content">
+        <div class="breadcrumb">
+            <a href="#" onclick="navigateTo('home')">Home</a> > 
+            <a href="#" onclick="navigateTo('shops')">Shops</a> > 
+            <a href="#" onclick="navigateTo('shop')">Golden Thread Textiles</a> > 
+            Traditional Hand-Woven Silk Scarf
+        </div>
+
+        <div class="product-container">
+            <div class="product-images">
+                <div class="main-image">Traditional Hand-Woven Silk Scarf</div>
+                <div class="image-thumbnails">
+                    <div class="thumbnail">View 1</div>
+                    <div class="thumbnail">View 2</div>
+                    <div class="thumbnail">View 3</div>
+                    <div class="thumbnail">View 4</div>
+                </div>
+            </div>
+            <div class="product-info">
+                <span class="product-category">Traditional Clothing</span>
+                <h1>Traditional Hand-Woven Silk Scarf</h1>
+                <div class="product-price">$45.00</div>
+                <p>This hand-woven silk scarf features traditional indigo dyeing techniques and patterns that represent rain and prosperity. Each piece is unique and crafted by skilled artisans using methods passed down for generations.</p>
+                <p>Made with 100% natural silk and dyed using traditional plant-based indigo.</p>
+                
+                <div class="quantity-selector">
+                    <label>Quantity: </label>
+                    <button onclick="decreaseQuantity()">-</button>
+                    <input type="text" value="1" id="quantity">
+                    <button onclick="increaseQuantity()">+</button>
+                </div>
+                
+                <button class="add-to-cart" onclick="addToCart()">Add to Cart</button>
+            </div>
+        </div>
+
+        <section class="tradtion-story">
+            <h2>The Cultural Tradition Behind This Item</h2>
+            <div class="tradition-content">
+                <div class="tradition-image">Indigo Dyeing Process</div>
+                <div>
+                    <h3>Indigo Dyeing: A Living Heritage</h3>
+                    <p>The art of indigo dyeing has been practiced for over 2,000 years and represents an important cultural tradition. The distinctive blue color was historically associated with nobility and spiritual protection.</p>
+                    <p>Each pattern on the scarf tells a story - the zigzag represents flowing water, essential for life and prosperity, while the diamond shapes symbolize fertile fields and a bountiful harvest.</p>
+                    <p>Today, fewer than 100 artisans still practice traditional indigo dyeing using natural ingredients and methods passed down through generations. By purchasing this scarf, you're helping to preserve this endangered cultural practice and support the families who maintain these skills.</p>
+                    <p>Learn more about this tradition by watching our <a href="#">short documentary</a> or joining our virtual workshop on traditional dyeing techniques.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="tabs">
+            <div class="tab-buttons">
+                <div class="tab-btn active" onclick="openTab('details')">Product Details</div>
+                <div class="tab-btn" onclick="openTab('care')">Care Instructions</div>
+                <div class="tab-btn" onclick="openTab('shipping')">Shipping</div>
+                <div class="tab-btn" onclick="openTab('reviews')">Reviews</div>
+            </div>
+            <div id="details" class="tab-content">
+                <h3>Product Details</h3>
+                <ul>
+                    <li>Dimensions: 70cm x 180cm</li>
+                    <li>Material: 100% natural silk</li>
+                    <li>Dye: Natural indigo from plant sources</li>
+                    <li>Technique: Hand-woven on traditional looms</li>
+                    <li>Artisan: Created by master weaver Lin Mei</li>
+                    <li>Region: Northern highlands</li>
+                </ul>
+                <p>Each scarf comes with a card explaining the traditional meaning of the patterns and the dyeing process.</p>
+            </div>
+            <div id="care" class="tab-content hidden">
+                <h3>Care Instructions</h3>
+                <ul>
+                    <li>Hand wash in cold water with a mild soap</li>
+                    <li>Do not use bleach or harsh detergents</li>
+                    <li>Hang to dry in shade</li>
+                    <li>Iron on low heat if necessary</li>
+                    <li>Natural indigo may transfer slightly during first few washes</li>
+                </ul>
+            </div>
+            <div id="shipping" class="tab-content hidden">
+                <h3>Shipping Information</h3>
+                <p>We ship worldwide with the following options:</p>
+                <ul>
+                    <li>Standard Shipping (7-10 business days): $5.95</li>
+                    <li>Express Shipping (3-5 business days): $12.95</li>
+                    <li>Free shipping on orders over $75</li>
+                </ul>
+                <p>Please note that handmade items may take 1-2 additional days to prepare before shipping.</p>
+            </div>
+            <div id="reviews" class="tab-content hidden">
+                <h3>Customer Reviews</h3>
+                <p><strong>4.8 out of 5 stars</strong> (24 reviews)</p>
+                <div>
+                    <p><strong>Sarah M.</strong> ★★★★★</p>
+                    <p>Beautiful craftsmanship! The colors are vibrant and the silk feels luxurious. I love knowing the story behind the patterns.</p>
+                </div>
+                <hr>
+                <div>
+                    <p><strong>James T.</strong> ★★★★★</p>
+                    <p>Bought this as a gift for my mother who loves traditional textiles. She was thrilled with both the scarf and the story card that came with it.</p>
+                </div>
+                <hr>
+                <div>
+                    <p><strong>Elena R.</strong> ★★★★☆</p>
+                    <p>Gorgeous piece, though slightly smaller than I expected. The craftsmanship is excellent.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Heritage Hub - Connecting Cultures, Preserving Traditions</p>
+    </footer>
+
+    <script>
+        function navigateTo(page) {
+            if (page === 'home') {
+                window.location.href = 'index.html';
+            } else if (page === 'shops') {
+                window.location.href = 'shops.html';
+            } else if (page === 'shop') {
+                window.location.href = 'shop.html';
+            } else if (page === 'category') {
+                window.location.href = 'category.html';
+            } else if (page === 'campaigns') {
+                window.location.href = 'campaigns.html';
+            } else if (page === 'cart') {
+                window.location.href = 'cart.html';
+            } else if (page === 'checkout') {
+                window.location.href = 'checkout.html';
+            }
+        }
+
+        function openTab(tabId) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.add('hidden');
+            });
+            
+            // Remove active class from all tab buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show the selected tab content and activate button
+            document.getElementById(tabId).classList.remove('hidden');
+            event.currentTarget.classList.add('active');
+        }
+
+        function decreaseQuantity() {
+            const input = document.getElementById('quantity');
+            let value = parseInt(input.value);
+            if (value > 1) {
+                input.value = value - 1;
+            }
+        }
+
+        function increaseQuantity() {
+            const input = document.getElementById('quantity');
+            let value = parseInt(input.value);
+            input.value = value + 1;
+        }
+
+        function addToCart() {
+            alert('Item added to cart!');
+            navigateTo('cart');
+        }
+    </script>
+</body>
+</html>

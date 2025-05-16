@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heritage Hub - Cart & Checkout</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            line-height: 1.6;
+        }
+        header {
+            background-color: #4a6741;
+            color: white;
+            padding: 1rem;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+        }
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .cart-container {
+            display: flex;
+            gap: 30px;
+            margin-top: 20px;
+        }
+        .cart-items {
+            flex: 2;
+        }
+        .cart-summary {
+            flex: 1;
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-radius: 4px;
+            align-self: flex-start;
+        }
+        .cart-item {
+            display: flex;
+            border-bottom: 1px solid #eee;
+            padding: 20px 0;
+        }
+        .item-image {
+            flex: 0 0 120px;
+            background-color: #ddd;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #777;
+            margin-right: 20px;
+        }
+        .item-details {
+            flex: 1;
+        }
+        .item-actions {
+            flex: 0 0 100px;
+            text-align: right;
+        }
+        .item-price {
+            font-weight: bold;
+            color: #4a6741;
+            margin: 10px 0;
+        }
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+        }
+        .quantity-selector button {
+            width: 25px;
+            height: 25px;
+            background-color: #eee;
+            border: 1px solid #ddd;
+            cursor: pointer;
+        }
+        .quantity-selector input {
+            width: 40px;
+            height: 25px;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-left: none;
+            border-right: none;
+        }
+        .remove-btn {
+            color: #d95204;
+            background: none;
+            border: none;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        .summary-total {
+            display: flex;
+            justify-content: space-between;
+            border-top: 2px solid #ddd;
+            margin-top: 20px;
+            padding-top: 20px;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        .promo-code {
+            margin: 20px 0;
+        }
+        .promo-code input {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: 70%;
+        }
+        .promo-code button {
+            padding: 10px;
+            background-color: #4a6741;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .btn {
+            display: block;
+            background-color: #4a6741;
+            color: white;
+            padding: 12px;
+            text-decoration: none;
+            border-radius: 4px;
+            text-align: center;
+            font-weight: bold;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+        .discount-row {
+            color: #d95204;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+        .empty-cart {
+            text-align: center;
+            padding: 50px 0;
+        }
+        .empty-cart h2 {
+            margin-bottom: 20px;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Heritage Hub</div>
+            <div class="nav-links">
+                <a href="#" onclick="navigateTo('home')">Home</a>
+                <a href="#" onclick="navigateTo('shops')">Shops</a>
+                <a href="#" onclick="navigateTo('campaigns')">Events & Campaigns</a>
+                <a href="#">About Us</a>
+                <a href="#" onclick="navigateTo('cart')">Cart (1)</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="main-content">
+        <h1>Your Shopping Cart</h1>
+        
+        <div class="cart-container">
+            <div class="cart-items">
+                <div class="cart-item">
+                    <div class="item-image">Traditional Scarf</div>
+                    <div class="item-details">
+                        <h3>Traditional Hand-Woven Silk Scarf</h3>
+                        <p>From: Golden Thread Textiles</p>
+                        <div class="item-price">$45.00</div>
+                        <div class="quantity-selector">
+                            <label>Quantity: </label>
+                            <button onclick="updateQuantity(this, -1)">-</button>
+                            <input type="text" value="1" class="item-quantity">
+                            <button onclick="updateQuantity(this, 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="item-actions">
+                        <button class="remove-btn" onclick="removeItem(this)">Remove</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="cart-summary">
+                <h2>Order Summary</h2>
+                <div class="summary-row">
+                    <span>Subtotal (1 item)</span>
+                    <span id="subtotal">$45.00</span>
+                </div>
+                <div class="summary-row">
+                    <span>Shipping</span>
+                    <span>$5.95</span>
+                </div>
+                <div class="summary-row">
+                    <span>Estimated Tax</span>
+                    <span>$3.60</span>
+                </div>
+                <div id="discount-row" class="summary-row discount-row hidden">
+                    <span>Discount (CULTURE25)</span>
+                    <span id="discount-amount">-$11.25</span>
+                </div>
+                <div class="summary-total">
+                    <span>Total</span>
+                    <span id="total">$54.55</span>
+                </div>
+                
+                <div class="promo-code">
+                    <h3>Have a promo code?</h3>
+                    <div style="display: flex; margin-top: 10px;">
+                        <input type="text" id="promo-input" placeholder="Enter code">
+                        <button onclick="applyPromo()">Apply</button>
+                    </div>
+                </div>
+                
+                <button class="btn" onclick="checkout()">Proceed to Checkout</button>
+                <div style="text-align: center; margin-top: 10px;">
+                    <a href="#" onclick="navigateTo('shops')">Continue Shopping</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="empty-cart hidden">
+            <h2>Your cart is empty</h2>
+            <p>Looks like you haven't added any items to your cart yet.</p>
+            <a href="#" onclick="navigateTo('shops')" class="btn" style="display: inline-block; margin-top: 20px;">Start Shopping</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Heritage Hub - Connecting Cultures, Preserving Traditions</p>
+    </footer>
+
+    <script>
+        function navigateTo(page) {
+            if (page === 'home') {
+                window.location.href = 'index.html';
+            } else if (page === 'shops') {
+                window.location.href = 'shops.html';
+            } else if (page === 'shop') {
+                window.location.href = 'shop.html';
+            } else if (page === 'category') {
+                window.location.href = 'category.html';
+            } else if (page === 'campaigns') {
+                window.location.href = 'campaigns.html';
+            } else if (page === 'cart') {
+                window.location.href = 'cart.html';
+            }
+        }
+
+        function updateQuantity(button, change) {
+            const input = button.parentElement.querySelector('.item-quantity');
+            let value = parseInt(input.value);
+            let newValue = value + change;
+            
+            if (newValue > 0) {
+                input.value = newValue;
+                updateTotals();
+            }
+        }
+
+        function removeItem(button) {
+            const item = button.closest('.cart-item');
+            item.remove();
+            
+            const remainingItems = document.querySelectorAll('.cart-item').length;
+            if (remainingItems === 0) {
+                document.querySelector('.cart-container').classList.add('hidden');
+                document.querySelector('.empty-cart').classList.remove('hidden');
+            }
+            
+            updateTotals();
+        }
+
+        function updateTotals() {
+            const quantity = parseInt(document.querySelector('.item-quantity').value) || 0;
+            const pricePerItem = 45;
+            const subtotal = quantity * pricePerItem;
+            
+            document.getElementById('subtotal').textContent = `$${subtotal.toFixed(2)}`;
+            
+            let total = subtotal + 5.95 + 3.60;
+            
+            // Apply discount if visible
+            if (!document.getElementById('discount-row').classList.contains('hidden')) {
+                const discount = subtotal * 0.25; // 25% discount
+                document.getElementById('discount-amount').textContent = `-$${discount.toFixed(2)}`;
+                total -= discount;
+            }
+            
+            document.getElementById('total').textContent = `$${total.toFixed(2)}`;
+        }
+
+        function applyPromo() {
+            const promoCode = document.getElementById('promo-input').value.toUpperCase();
+            
+            if (promoCode === 'SAMCULTURE') {
+                document.getElementById('discount-row').classList.remove('hidden');
+                alert('Promo code SAMCULTURE applied! You get 15% off your order.');
+                updateTotals();
+            } else if (promoCode === '') {
+                alert('Please enter a promo code.');
+            } else {
+                alert('Invalid promo code. Please try again.');
+            }
+        }
+
+        function checkout() {
+            alert('Thank you for your purchase! Your order has been placed.');
+            navigateTo('home');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heritage Hub - Connect with Cultural Traditions</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Heritage Hub</div>
+            <div class="nav-links">
+                <a href="#">Home</a>
+                <a href="#" onclick="navigateTo('shops')">Shops</a>
+                <a href="#" onclick="navigateTo('campaigns')">Events & Campaigns</a>
+                <a href="#">About Us</a>
+                <a href="#" onclick="navigateTo('cart')">Cart (0)</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="main-content">
+        <section class="hero">
+            <h1>Discover Cultural Treasures</h1>
+            <p>Heritage Hub connects you with local artisans and small businesses that preserve traditional crafts and cultural heritage.</p>
+            <a href="#" onclick="navigateTo('shops')" class="btn">Explore Shops</a>
+        </section>
+
+        <section class="campaign-banner">
+            <h2>Lunar New Year Festival Collection</h2>
+            <p>Celebrate with authentic decorations, traditional foods, and meaningful gifts.</p>
+            <a href="#" onclick="navigateTo('campaigns')" class="btn">View Festival Collection</a>
+        </section>
+
+        <section class="featured-categories">
+            <h2>Featured Categories</h2>
+            <div class="category-grid">
+                <div class="category-card" onclick="navigateTo('category')">
+                    <div class="placeholder-img">Traditional Clothing</div>
+                    <h3>Traditional Clothing</h3>
+                    <p>Handcrafted garments with cultural significance</p>
+                </div>
+                <div class="category-card" onclick="navigateTo('category')">
+                    <div class="placeholder-img">Artisan Crafts</div>
+                    <h3>Artisan Crafts</h3>
+                    <p>Unique handmade items preserving ancient techniques</p>
+                </div>
+                <div class="category-card" onclick="navigateTo('category')">
+                    <div class="placeholder-img">Festival Items</div>
+                    <h3>Festival Items</h3>
+                    <p>Decorations and supplies for cultural celebrations</p>
+                </div>
+                <div class="category-card" onclick="navigateTo('category')">
+                    <div class="placeholder-img">Traditional Foods</div>
+                    <h3>Traditional Foods</h3>
+                    <p>Authentic recipes and ingredients with history</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="featured-shops">
+            <h2>Featured Shops</h2>
+            <div class="shop-grid">
+                <div class="shop-card" onclick="navigateTo('shop')">
+                    <div class="placeholder-img">Golden Thread Textiles</div>
+                    <h3>Golden Thread Textiles</h3>
+                    <p>Handwoven textiles using traditional patterns</p>
+                </div>
+                <div class="shop-card" onclick="navigateTo('shop')">
+                    <div class="placeholder-img">Bamboo Artistry</div>
+                    <h3>Bamboo Artistry</h3>
+                    <p>Sustainable bamboo crafts with cultural designs</p>
+                </div>
+                <div class="shop-card" onclick="navigateTo('shop')">
+                    <div class="placeholder-img">Ceramic Heritage</div>
+                    <h3>Ceramic Heritage</h3>
+                    <p>Traditional pottery with modern functionality</p>
+                </div>
+                <div class="shop-card" onclick="navigateTo('shop')">
+                    <div class="placeholder-img">Ancestral Spices</div>
+                    <h3>Ancestral Spices</h3>
+                    <p>Family recipes and traditional cooking ingredients</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Heritage Hub - Connecting Cultures, Preserving Traditions</p>
+    </footer>
+
+    <script>
+        function navigateTo(page) {
+            if (page === 'shops') {
+                window.location.href = 'shops.html';
+            } else if (page === 'shop') {
+                window.location.href = 'shop.html';
+            } else if (page === 'category') {
+                window.location.href = 'category.html';
+            } else if (page === 'campaigns') {
+                window.location.href = 'campaigns.html';
+            } else if (page === 'cart') {
+                window.location.href = 'cart.html';
+            } else if (page === 'product') {
+                window.location.href = 'product.html';
+            }
+        }
+
+        // This would normally be handled with a proper routing system
+        // Simple simulation for demo purposes
+        document.querySelectorAll('.category-card, .shop-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const type = card.classList.contains('category-card') ? 'category' : 'shop';
+                navigateTo(type);
+            });
+        });
+    </script>
+</body>
+</html>
